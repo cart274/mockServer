@@ -4,8 +4,8 @@ const router = express.Router();
 import {People} from './people';
 const people = new People();
 
-router.get('/', (req: express.Request, res: express.Response, next: express.NextFunction) => {
-	let peoples = people.getAllPeoples()
+router.get('/:num', (req: express.Request, res: express.Response, next: express.NextFunction) => {
+	let peoples = people.getAllPeoples(req.params.num)
 	res.status(200).json({peoples})
 });
 

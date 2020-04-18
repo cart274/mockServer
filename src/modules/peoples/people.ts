@@ -4,13 +4,15 @@ const logger = log4js.getLogger('logger');
 
 class People {
 
-	getAllPeoples() {
+	getAllPeoples(num: number) {
 		let peoples = [];
-		let people = {
-			name: faker.name.findName(),
-			email: faker.internet.email()
+		for(let i = 0; i < num; i+=1) {
+			let people = {
+				name: faker.name.findName(),
+				email: faker.internet.email()
+			}
+			peoples.push(people);
 		}
-		peoples.push(people);
 		return peoples;
 	}
 }
